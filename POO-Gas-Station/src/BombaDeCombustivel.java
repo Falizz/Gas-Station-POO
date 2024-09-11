@@ -9,7 +9,6 @@ public class BombaDeCombustivel {
     String tipoCombustivel = "Etanol";
     double valorLitro = 5.78F;
     double quantidadeCombustivel = 1000;
-    double litros = 0;
     double valorTotalReais = 0;
     double valorTotalLitros = 0;
 
@@ -55,7 +54,8 @@ public class BombaDeCombustivel {
                 alterarQuantidadeCombustivel();
                 operacoes();
             case 6:
-
+                statusBomba();
+                operacoes();
             case 0:
                 return;
             default:
@@ -72,7 +72,7 @@ public class BombaDeCombustivel {
         }
         System.out.println("Digite o valor a ser abastecido: ");
         double valor = scanner.nextFloat();
-        litros = valor / valorLitro;
+        double litros = valor / valorLitro;
         valorTotalLitros += litros;
         valorTotalReais += valor;
         if(quantidadeCombustivel < litros){
@@ -91,7 +91,7 @@ public class BombaDeCombustivel {
             alterarValor();
         }
         System.out.println("Digite quantos Litros de " + tipoCombustivel + " deseja: ");
-        litros = scanner.nextFloat();
+        double litros = scanner.nextFloat();
         if(quantidadeCombustivel < litros){
             System.out.println("Quantidade de combustível insuficiente");
             System.out.println("Quantidade de combustível na bomba: " + df.format(quantidadeCombustivel));
